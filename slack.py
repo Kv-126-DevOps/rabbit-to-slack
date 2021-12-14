@@ -6,14 +6,30 @@ import requests
 from config import *
 
 
+def getChannel(data):
+    for l in data.issue.labels:
+        if l.name == "bug":
+            return SLACK_BUG
+        elif l.name == "userstory":
+            return SLACK_US
+        elif l.name == "testcase":
+            return SLACK_TC
+        else:
+            return
+    
+
 def dataToMessage(data):
     user = data.issue.user.login
     action = data.action
+    url = data.issue.html_url
 
-    return f"{user} {action} something in project issues"
+    return f"{user} {action} issue in project.\n {url}"
     
 
 def sendToSlack(data):
+    if data.action != "opened":
+        return
+
     url = SLACK_URL
     message = dataToMessage(data)
     title = (f"New Incoming Message :zap:")
