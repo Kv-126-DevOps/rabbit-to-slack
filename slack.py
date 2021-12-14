@@ -35,7 +35,7 @@ def sendToSlack(data):
     title = (f"New Incoming Message :zap:")
     slack_data = {
         "icon_emoji": ":satellite:",
-        "channel" : SLACK_CHANNEL,
+        "channel" : getChannel(data),
         "attachments": [
             {
                 "color": "#9733EE",
