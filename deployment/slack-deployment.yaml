@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rabbit-to-slack
+    deployed: ${TF_VAR_project}
+  name: rabbit-to-slack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbit-to-slack
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: rabbit-to-slack
+    spec:
+      containers:
+        - env:
+            - name: RABBIT_HOST
+              value: rabbitmq
+            - name: RABBIT_PORT
+              value: "5672"
+            - name: RABBIT_PW
+              value: softserve
+            - name: RABBIT_QUEUE
+              value: slack
+            - name: RABBIT_USER
+              value: devops
+            - name: SLACK_URL
+              value: ${slack_wh}
+            - name: SLACK_BUG
+              value: '#bug'
+            - name: SLACK_TC
+              value: '#testcase'
+            - name: SLACK_US
+              value: '#userstory'
+          image: gcr.io/${TF_VAR_project}/rabbit_to_slack
+          name: rabbit-to-slack
+          resources: {}
+      restartPolicy: Always
+status: {}
+
