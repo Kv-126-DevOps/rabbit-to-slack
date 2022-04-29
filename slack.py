@@ -35,7 +35,7 @@ def sendToSlack(data):
     title = (f"New Incoming Message :zap:")
     slack_data = {
         "icon_emoji": ":satellite:",
-        "channel" : "rabbit-to-slack",
+        #"channel": "rabbit-to-slack",
         #"channel" : getChannel(data),
         "attachments": [
             {
