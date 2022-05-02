@@ -4,8 +4,8 @@ This application grabs data from RabbitMQ queue and send to Slack
 
 
 ### Create project folderdd
-    sudo git clone https://github.com/DevOps-Kv-116/rabbit_to_slack
-    cd rabbit_to_slack
+    sudo git clone https://github.com/DevOps-Kv-116/rabbit-to-slack
+    cd rabbit-to-slack
 
 ### Create rabbit_to_postgres container
 	docker build --tag="slack" .
