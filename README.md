@@ -22,12 +22,12 @@ Channel for slack is specified during "Incoming Webhooks to slack" configuration
 ### Application Properties
 	Parameters are set as environment variables
 	
-	| Parameter     | Default     | 
-	|:--------------|:------------|
-	| RABBIT_HOST   |    rabbit   | 
-	| RABBIT_PORT   |    5672     |
-	| RABBIT_QUEUE  |    slack    |
-	| SLACK_URL     | get from the selected github repo -> Webhook URL|
+| Parameter     | Default     | 
+|:--------------|:------------|
+| RABBIT_HOST   |    rabbit   | 
+| RABBIT_PORT   |    5672     |
+| RABBIT_QUEUE  |    slack    |
+| SLACK_URL     | get from the selected github repo -> Webhook URL|
 	
 ### Testing
     When  json-filter and rabbit-to-slack are configured , messages about new issues in the connected Github repo will be appeared in the configured for integration slack channel.
