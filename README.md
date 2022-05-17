@@ -30,6 +30,6 @@ Channel for slack is specified during "Incoming Webhooks to slack" configuration
 | SLACK_URL     | get from the selected github repo -> Webhook URL|
 	
 ### Testing
-    When  json-filter and rabbit-to-slack are configured , messages about new issues in the connected Github repo will be appeared in the configured for integration slack channel.
+    When json-filter and rabbit-to-slack are configured, messages about new issues in the connected Github repo will appear in the configured for integration slack channel.
 	
 
