@@ -36,7 +36,7 @@ spec:
               value: '#testcase'
             - name: SLACK_US
               value: '#userstory'
-          image: gcr.io/${TF_VAR_project}/rabbit_to_slack
+          image: gcr.io/${TF_VAR_project}/rabbit-to-slack
           name: rabbit-to-slack
           resources: {}
       restartPolicy: Always
