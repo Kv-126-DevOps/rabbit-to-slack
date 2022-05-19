@@ -19,7 +19,6 @@ SLACK_US = getEnvVariable("SLACK_US")
 SLACK_TC = getEnvVariable("SLACK_TC")
 
 
-
 #POSTGRES_HOST = getEnvVariable("POSTGRES_HOST")
 #POSTGRES_PORT = getEnvVariable("POSTGRES_PORT")
 #POSTGRES_USER = getEnvVariable("POSTGRES_USER")
