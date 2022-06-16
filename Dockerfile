@@ -12,4 +12,4 @@ RUN pip3 install -r requirements.txt
 
 COPY --chown=kvuser:kvuser . .
 
-CMD  [ "python", "./app.py"]
+CMD  [ "python3", "./app.py"]
