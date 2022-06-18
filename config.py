@@ -13,11 +13,10 @@ def getEnvVariable(name):
         message = f"Expected env variable {name} not set."
         raise Exception(message)
 
-SLACK_URL = getEnvVariable("SLACK_URL")
-SLACK_BUG = getEnvVariable("SLACK_BUG")
-SLACK_US = getEnvVariable("SLACK_US")
-SLACK_TC = getEnvVariable("SLACK_TC")
-
+SLACK_URL = os.environ.get("SLACK_URL")
+SLACK_BUG = os.environ.get("SLACK_BUG", "SLACK_URL")
+SLACK_US = os.environ.get("SLACK_US", "SLACK_URL")
+SLACK_TC = os.environ.get("SLACK_TC", "SLACK_URL")
 
 #POSTGRES_HOST = getEnvVariable("POSTGRES_HOST")
 #POSTGRES_PORT = getEnvVariable("POSTGRES_PORT")
