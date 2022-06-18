@@ -13,16 +13,21 @@ import ssl
 #logging.basicConfig(filename='app.log', filemode='w', format='%(asctime)s - %(message)s', level=logging.INFO)
 
 def main():
-    
+    """RabbitMQ integration Component"""
     RABBIT_HOST = os.environ.get("RABBIT_HOST")
     RABBIT_PORT = os.environ.get("RABBIT_PORT")
     RABBIT_USER = os.environ.get("RABBIT_USER")
     RABBIT_PW = os.environ.get("RABBIT_PW")
+    
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     ssl_context.set_ciphers('ECDHE+AESGCM:!ECDSA')
-    parameters = pika.URLParameters(f"amqp://{RABBIT_USER}:{RABBIT_PW}@{RABBIT_HOST}:{RABBIT_PORT}")
-    parameters.ssl_options = pika.SSLOptions(context=ssl_context)
     
+    parameters = pika.URLParameters(
+            f"amqp://{RABBIT_USER}:{RABBIT_PW}@{RABBIT_HOST}:{RABBIT_PORT}"
+        )
+
+    parameters.ssl_options = pika.SSLOptions(context=ssl_context)
+
     def callback(channel, method, properties, body):
         data = parseJson(body.decode())
         print(body.decode())
