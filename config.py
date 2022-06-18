@@ -14,9 +14,10 @@ def getEnvVariable(name):
         raise Exception(message)
 
 SLACK_URL = getEnvVariable("SLACK_URL")
-SLACK_BUG = nvl(getEnvVariable("SLACK_BUG"), getEnvVariable("SLACK_URL"))
-SLACK_US = nvl(getEnvVariable("SLACK_US"), getEnvVariable("SLACK_URL"))
-SLACK_TC = nvl(getEnvVariable("SLACK_TC"), getEnvVariable("SLACK_URL"))
+SLACK_BUG = getEnvVariable("SLACK_BUG")
+SLACK_US = getEnvVariable("SLACK_US")
+SLACK_TC = getEnvVariable("SLACK_TC")
+
 
 #POSTGRES_HOST = getEnvVariable("POSTGRES_HOST")
 #POSTGRES_PORT = getEnvVariable("POSTGRES_PORT")
