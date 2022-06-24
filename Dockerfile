@@ -1,16 +1,14 @@
-FROM python:3.7.2-alpine
+FROM python:3.9-slim
 
-RUN pip install --upgrade pip
-RUN apk add gcc musl-dev build-base postgresql-libs postgresql-dev
+RUN useradd -ms /bin/bash kvuser
+USER kvuser
+WORKDIR /home/kvuser
 
-RUN adduser -D worker
-USER worker
-WORKDIR /home/worker
+ENV PATH="/home/kvuser/.local/bin:${PATH}"
 
-ENV PATH="/home/worker/.local/bin:${PATH}"
-COPY --chown=worker:worker requirements.txt requirements.txt
-RUN pip install --user -r requirements.txt
+COPY --chown=kvuser:kvuser requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
-COPY --chown=worker:worker . .
+COPY --chown=kvuser:kvuser . .
 
 CMD  [ "python3", "./app.py"]
